@@ -1,0 +1,19 @@
+function remove_extension(s)
+    arr = split(s, ".")
+    return (length(arr) == 1) ? s : join(arr[1:(end-1)]) 
+end
+
+function pdf_to_eps(abspath, fname, dir)
+    eps_name = joinpath(dir, "$(fname).eps") 
+    run(`inkscape $abspath -E $eps_name --export-ignore-filters --export-ps-level=2`)
+    return eps_name
+end
+
+function printfig(fname; kwargs...)
+    filename = remove_extension(fname)
+    workdir = mktempdir()
+    pdf_name = joinpath(workdir, "$(filename).pdf")
+    PyPlot.savefig(pdf_name; kwargs...)
+    eps_path = pdf_to_eps(pdf_name, filename, workdir)
+    cp(eps_path, joinpath(pwd(), basename(eps_path)))
+end
