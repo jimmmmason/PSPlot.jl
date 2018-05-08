@@ -3,6 +3,9 @@ A Julia wrapper for PyPlot generating EPS files that compile against PSTool in L
 
 [![Build Status](https://travis-ci.org/reesepathak/PSPlot.jl.svg?branch=master)](https://travis-ci.org/reesepathak/PSPlot.jl)
 
+The goal of this package is to allow Julia users to insert plots with `pstool` in LaTeX, just as MATLAB users can use
+`psfrag`. 
+
 # Usage
 Suppose you had the following figure
 
@@ -13,14 +16,14 @@ xlabel("xx")
 savefig("output.png")
 ```
 
-All you need to do to additionally create the EPS file is
+All you need to do to create the EPS version of the file is
 ```julia
-using PSPlot, PyPlot      # note the addition of PSPlot
+using PSPlot      # note the addition of PSPlot
 plot(1:10)
 xlabel("xx")
-savefig("output1.png")     # (optional) creates png with PyPlot
 printfig("output2.eps")    # creates EPS with PSPlot
 ```
+Notice that all that changed was `PyPlot` became `PSPlot`, and `savefig` became `printfig`. 
 
 Of course, you can now insert the following code into your LaTeX file,
 ```latex
@@ -36,9 +39,10 @@ Of course, you can now insert the following code into your LaTeX file,
 \end{figure}
 ....
 ```
-As expected, upon running `pdflatex -shell-escape filename.tex`, you now will have
-the label `xx` replaced with the LaTeX ![](https://latex.codecogs.com/svg.latex?x).
-In other words, this matches the functionality of `psfrag` with `MATLAB`.
+As expected, upon running `pdflatex -shell-escape filename.tex`, the label `xx`
+is replaced with the LaTeX ![](https://latex.codecogs.com/svg.latex?x).
+Note that `PSPlot` alters the `matplotlibrc` to give plotting behavior more similar to
+`MATLAB`.
 
 ## Minimal working example
 You can see a complete minimal working example in the `example/` directory.
