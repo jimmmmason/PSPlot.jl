@@ -1,6 +1,8 @@
 # PSPlot.jl
 A Julia wrapper for PyPlot generating EPS files that compile against PSTool in LaTeX
 
+[![Build Status](https://travis-ci.org/reesepathak/PSPlot.jl.svg?branch=master)](https://travis-ci.org/reesepathak/PSPlot.jl)
+
 # Usage
 Suppose you had the following figure
 
