@@ -3,7 +3,7 @@ using BinDeps
 
 inkscape = library_dependency("inkscape")
 
-@osx_only begin
+if is_apple()
     using Homebrew
     provides(Homebrew.HB, "caskroom/cask/inkscape", inkscape, os= :Darwin)
 end
