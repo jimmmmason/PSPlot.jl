@@ -13,11 +13,11 @@ savefig("output.png")
 
 All you need to do to additionally create the EPS file is
 ```julia
-using PSPlot, PyPlot
+using PSPlot, PyPlot      # note the addition of PSPlot
 plot(1:10)
 xlabel("xx")
-savefig("output.png") # creates png with PyPlot
-printfig("output.eps") # creates EPS with PSPlot
+savefig("output.png")     # (optional) creates png with PyPlot
+printfig("output.eps")    # creates EPS with PSPlot
 ```
 
 Of course, you can now insert the following code into your LaTeX file,
