@@ -16,8 +16,8 @@ All you need to do to additionally create the EPS file is
 using PSPlot, PyPlot      # note the addition of PSPlot
 plot(1:10)
 xlabel("xx")
-savefig("output.png")     # (optional) creates png with PyPlot
-printfig("output.eps")    # creates EPS with PSPlot
+savefig("output1.png")     # (optional) creates png with PyPlot
+printfig("output2.eps")    # creates EPS with PSPlot
 ```
 
 Of course, you can now insert the following code into your LaTeX file,
@@ -27,11 +27,13 @@ Of course, you can now insert the following code into your LaTeX file,
 \begin{document}
 ...
 \begin{figure}
-\psfragfig[width=0.7\linewidth]{output.eps}{
+\centering
+\psfragfig[width=0.7\linewidth]{output2}{
 \psfrag{xx}{$x$}
 }
+\end{figure}
 ....
 ```
 As expected, upon running `pdflatex -shell-escape filename.tex`, you now will have
-the label `xx` replaced with the LaTeX $x$. In other words, this matches the functionality of
-`psfrag` with `MATLAB`.
+the label `xx` replaced with the LaTeX ![](https://latex.codecogs.com/svg.latex?x).
+In other words, this matches the functionality of `psfrag` with `MATLAB`.
