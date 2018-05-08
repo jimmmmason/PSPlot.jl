@@ -39,3 +39,7 @@ Of course, you can now insert the following code into your LaTeX file,
 As expected, upon running `pdflatex -shell-escape filename.tex`, you now will have
 the label `xx` replaced with the LaTeX ![](https://latex.codecogs.com/svg.latex?x).
 In other words, this matches the functionality of `psfrag` with `MATLAB`.
+
+## Minimal working example
+You can see a complete minimal working example in the `example/` directory.
+See `run.sh` to see the workflow.
