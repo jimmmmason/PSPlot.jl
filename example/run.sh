@@ -1,2 +1,2 @@
 julia example.jl
-pdflatex -shell-escape figure.tex
+pdflatex -shell-escape example.tex
