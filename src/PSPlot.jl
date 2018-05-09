@@ -1,16 +1,12 @@
 module PSPlot
 
+# load inkscape into path 
 if !is_apple()
     error("PSPlot currently only support OS X")
-end
 else
     using Homebrew
     brew_path = joinpath(Homebrew.prefix(), "bin")
     ENV["PATH"] = string(ENV["PATH"], ":", brew_path)
-end
-
-function call_inkscape(cmd)
-    return run(`inkscape $cmd`)
 end
 
 using Reexport
