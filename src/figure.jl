@@ -10,10 +10,11 @@ function pdf_to_eps(abspath, fname, dir)
 end
 
 function printfig(fname; kwargs...)
-    filename = remove_extension(fname)
+    dir, base = Base.Filesystem.dirname(fname), Base.Filesystem.basename(fname)
+    filename = remove_extension(base)
     workdir = mktempdir()
     pdf_name = joinpath(workdir, "$(filename).pdf")
     PyPlot.savefig(pdf_name; rasterized=false, kwargs...)
     eps_path = pdf_to_eps(pdf_name, filename, workdir)
-    cp(eps_path, joinpath(pwd(), basename(eps_path)), remove_destination=true)
+    cp(eps_path, joinpath(dir, basename(eps_path)), remove_destination=true)
 end

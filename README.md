@@ -6,8 +6,18 @@ A Julia wrapper for PyPlot generating EPS files that compile against PSTool in L
 [![codecov](https://codecov.io/gh/reesepathak/PSPlot.jl/branch/master/graph/badge.svg)](https://codecov.io/gh/reesepathak/PSPlot.jl)
 
 
-The goal of this package is to allow Julia users to insert plots with `pstool` in LaTeX, just as MATLAB users can use
-`psfrag`. 
+The goal of this package is to allow Julia users to insert plots with `pstool` (or also `psfrag') in PDFLaTeX (or also in LaTeX),
+just as MATLAB users can use `psfrag`. 
+
+# Installation
+
+This package is best installed through the following commands
+```Julia
+Pkg.clone("https://github.com/reesepathak/PSPlot.jl.git")
+Pkg.update()
+```
+We are also in the `METADATA.jl` repository, so you can add the package via `Pkg.add("PSPlot")`, but you will
+get an outdated version of the code (read as: possibly having more bugs). Please use the git clone version for now. 
 
 # Usage
 Suppose you had the following figure

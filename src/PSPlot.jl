@@ -1,7 +1,7 @@
 module PSPlot
 
 # load inkscape into path 
-if !is_apple()
+if !Sys.isapple()
     error("PSPlot currently only support OS X")
 else
     using Homebrew
